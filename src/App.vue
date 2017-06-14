@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="wrapper">
+    <h1>Podcasts: {{ podcastsTest }}</h1>
     <top-header></top-header>
     <home></home>
   </div>
@@ -10,12 +11,17 @@
   import Home from './components/Home.vue'
   import Player from './components/player/Player.vue'
   import SimplePodcast from './components/podcasts/PodcastSimple.vue'
-
   export default {
     name: 'app',
     components: {
       TopHeader, Home, Player, SimplePodcast
+    },
+    computed: {
+      podcastsTest () {
+        return this.$store.state
+      }
     }
+
   }
 </script>
 
@@ -23,10 +29,12 @@
   html, body {
     height: 100%;
   }
+
   body {
     position: relative;
     padding-bottom: 100px;
   }
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
