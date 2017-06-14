@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="wrapper">
     <top-header></top-header>
     <home></home>
   </div>
@@ -20,10 +20,22 @@
 </script>
 
 <style>
+  html, body {
+    height: 100%;
+  }
+  body {
+    position: relative;
+    padding-bottom: 100px;
+  }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+
 </style>

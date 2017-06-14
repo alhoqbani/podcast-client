@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>Player</h1>
+    <audio controls>
+      <source src="#" type="audio/mp3">
+      Your browser does not support the video tag.
+    </audio>
   </div>
 </template>
 

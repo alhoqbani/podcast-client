@@ -1,9 +1,13 @@
 <template>
-  <header>
-    <h1>Header</h1>
-    <player></player>
+  <div class="container">
+    <header>
+      <div>
+        <h1 class="text-center">Podcast</h1>
+        <player></player>
 
-  </header>
+      </div>
+    </header>
+  </div>
 
 </template>
 
@@ -19,6 +23,10 @@
 </script>
 
 <style scoped>
-
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 </style>
