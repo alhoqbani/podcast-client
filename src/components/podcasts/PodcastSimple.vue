@@ -1,9 +1,13 @@
 <template>
     <div class="podcast">
-        <h4> <a href="#">{{podcast.name}}</a> <span class="pull-right text-danger">{{podcast.created_at_human}}</span><time :datetime="podcast.created_at"></time></h4>
+        <h4><a href="#" @click.prevent="switchPodcast(podcast.id)">{{podcast.name}}</a> <span
+                class="pull-right text-danger">{{podcast.created_at_human}}</span>
+            <time :datetime="podcast.created_at"></time>
+        </h4>
         <div class="media">
             <div class="media-left">
-                <a href="#"><img src="../../assets/play-button.svg" class="play-button"></a>
+                <a href="#" @click.prevent="switchPodcast(podcast.id)"><img src="../../assets/play-button.svg"
+                                                                            class="play-button"></a>
             </div>
             <div class="media-body">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita impedit magni nisi. Aliquid asperiores, atque beatae deserunt enim porro quaerat quisquam voluptate! Blanditiis cumque excepturi expedita nemo odit rem.
@@ -13,9 +17,21 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'podcast-simple',
-    props: ['podcast']
+    props: ['podcast'],
+    methods: {
+      ...mapActions({
+        'getPodcast': 'Podcasts/getPodcast'
+      }),
+      switchPodcast (id) {
+        this.getPodcast(id).then(response => console.log(response))
+//          .then((podcast) => {
+//          console.log(podcast)
+//        })
+      }
+    }
   }
 
 </script>

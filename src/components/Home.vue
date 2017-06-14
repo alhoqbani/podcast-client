@@ -4,12 +4,12 @@
 {{page}}
       <h3 class="text-center">Podcasts List</h3>
       <transition-group name="fade">
-        <podcast-simple :key="podcast.id" v-for="podcast in podcasts" :podcast="podcast"></podcast-simple>
+        <podcast-simple :key="podcast.id" v-for="podcast in podcasts" :podcast="podcast" @getPodcast="getPodcast($event)"></podcast-simple>
       </transition-group>
 
       <button class="btn btn-primary btn-block podcasts-more"
               v-if="page.hasMore()"
-              @click.prevent="getMoreProducts"
+              @click.prevent="getMorePodcasts"
       >More Podcasts</button>
     </div>
   </div>
@@ -29,7 +29,8 @@
     methods: {
       ...mapActions({
         getPoddcasts: 'Podcasts/getPodcasts',
-        getMoreProducts: 'Podcasts/getMoreProducts'
+        getMorePodcasts: 'Podcasts/getMorePodcasts',
+        getPodcast: 'Podcasts/getPodcast'
       }),
       show: function () {
         this.podcasts.push([])
