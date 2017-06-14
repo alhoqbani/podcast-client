@@ -5,7 +5,7 @@
             <time :datetime="podcast.created_at"></time>
         </h4>
         <div class="media">
-            <div class="media-left">
+            <div class="media-left" :class="{hidden: playing && playing.id === podcast.id}">
                 <a href="#" @click.prevent="switchPodcast(podcast.id)"><img src="../../assets/play-button.svg"
                                                                             class="play-button"></a>
             </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'podcast-simple',
     props: ['podcast'],
@@ -31,6 +31,11 @@
           this.setPlaying(podcast)
         })
       }
+    },
+    computed: {
+      ...mapGetters({
+        playing: 'Player/getPlaying'
+      })
     }
   }
 
