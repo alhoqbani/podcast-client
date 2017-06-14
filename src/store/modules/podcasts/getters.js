@@ -1,4 +1,7 @@
 export const getPodcasts = (state) => {
-  console.log(state)
   return state.podcasts
+}
+
+export const getPage = (state) => {
+  return state.page
 }

@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="wrapper">
-    <h1>Podcasts: {{ podcastsTest }}</h1>
     <top-header></top-header>
     <home></home>
   </div>

@@ -1,14 +1,16 @@
 <template>
   <div class="container main">
     <div class=" col-md-6 col-md-offset-3">
-      {{podcasts}}
-
+{{page}}
       <h3 class="text-center">Podcasts List</h3>
       <transition-group name="fade">
-        <podcast-simple :key="podcast.id" v-for="podcast in podcasts"></podcast-simple>
+        <podcast-simple :key="podcast.id" v-for="podcast in podcasts" :podcast="podcast"></podcast-simple>
       </transition-group>
 
-      <button class="btn btn-primary btn-block podcasts-more" @click.prevent="show">More Podcasts</button>
+      <button class="btn btn-primary btn-block podcasts-more"
+              v-if="page.hasMore()"
+              @click.prevent="getMoreProducts"
+      >More Podcasts</button>
     </div>
   </div>
 </template>
@@ -26,7 +28,8 @@
     },
     methods: {
       ...mapActions({
-        getPoddcasts: 'Podcasts/getPodcasts'
+        getPoddcasts: 'Podcasts/getPodcasts',
+        getMoreProducts: 'Podcasts/getMoreProducts'
       }),
       show: function () {
         this.podcasts.push([])
@@ -34,7 +37,8 @@
     },
     computed: {
       ...mapGetters({
-        podcasts: 'Podcasts/getPodcasts'
+        podcasts: 'Podcasts/getPodcasts',
+        page: 'Podcasts/getPage'
       })
     },
     mounted () {

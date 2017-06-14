@@ -1,32 +1,34 @@
 <template>
-  <div class="podcast">
-    <h4>Podcast</h4>
-    <div class="media">
-      <div class="media-left">
-        <a href="#"><img src="../../assets/play-button.svg" class="play-button"></a>
-      </div>
-      <div class="media-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis eveniet hic molestiae natus nemo quasi, reprehenderit sit. Ad iste labore, nesciunt optio quam recusandae vero voluptates. Aliquid, fugiat similique?
-      </div>
+    <div class="podcast">
+        <h4> <a href="#">{{podcast.name}}</a> <span class="pull-right text-danger">{{podcast.created_at_human}}</span><time :datetime="podcast.created_at"></time></h4>
+        <div class="media">
+            <div class="media-left">
+                <a href="#"><img src="../../assets/play-button.svg" class="play-button"></a>
+            </div>
+            <div class="media-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita impedit magni nisi. Aliquid asperiores, atque beatae deserunt enim porro quaerat quisquam voluptate! Blanditiis cumque excepturi expedita nemo odit rem.
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
   export default {
-    name: 'podcast-simple'
+    name: 'podcast-simple',
+    props: ['podcast']
   }
 
 </script>
 
 <style>
-  .play-button {
-    height: 5%;
-  }
-  .podcast {
-    margin-top: 20px;
-    background-color: white;
-    padding: 10px;
-    box-shadow: lightgray;
-  }
+    .play-button {
+        height: 5%;
+    }
+
+    .podcast {
+        margin-top: 20px;
+        background-color: white;
+        padding: 10px;
+        box-shadow: lightgray;
+    }
 </style>
