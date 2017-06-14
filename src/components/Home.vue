@@ -1,7 +1,7 @@
 <template>
   <div class="container main">
     <div class=" col-md-6 col-md-offset-3">
-{{page}}
+
       <h3 class="text-center">Podcasts List</h3>
       <transition-group name="fade">
         <podcast-simple :key="podcast.id" v-for="podcast in podcasts" :podcast="podcast" @getPodcast="getPodcast($event)"></podcast-simple>

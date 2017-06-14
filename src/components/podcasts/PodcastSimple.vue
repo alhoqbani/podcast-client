@@ -23,13 +23,13 @@
     props: ['podcast'],
     methods: {
       ...mapActions({
-        'getPodcast': 'Podcasts/getPodcast'
+        'getPodcast': 'Podcasts/getPodcast',
+        'setPlaying': 'Player/setPlaying'
       }),
       switchPodcast (id) {
-        this.getPodcast(id).then(response => console.log(response))
-//          .then((podcast) => {
-//          console.log(podcast)
-//        })
+        this.getPodcast(id).then(podcast => {
+          this.setPlaying(podcast)
+        })
       }
     }
   }
